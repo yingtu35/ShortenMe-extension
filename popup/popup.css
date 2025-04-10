@@ -1,0 +1,42 @@
+body {
+  width: 400px;
+}
+
+.error-text {
+  color: red;
+  display: none;
+}
+
+/* Add spacing between form elements */
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+form input {
+  margin-bottom: 12px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+#shortened-url {
+  margin-top: 12px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}

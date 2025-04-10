@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+  <h1>URL Shortener</h1>
+  <form id="url-shorten-form">
+    <input type="url" id="url" name="url" placeholder="http://example.com" required>
+    <!-- Add an error text -->
+    <p id="error-text" class="error-text"></p>
+    <button id="copy-button" type="submit">Shorten URL and copy to clipboard</button>
+  </form>
+  <!-- Add a input that will populate the shortenedUrl, cannot be edited -->
+  <input type="text" id="shortened-url" name="shortened-url" readonly>
+  <script src="./popup.js"></script>
+</body>
+</html>
