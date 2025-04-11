@@ -1,3 +1,105 @@
+chrome.runtime.onInstalled.addListener(() => {
+  // Add a context menu item for shortening URLs when right-clicking a link
+  chrome.contextMenus.create({
+    id: "shortenUrl",
+    title: "Shorten the link and copy to clipboard",
+    contexts: ["link"],
+  })
+
+  // Add a context menu item for shortening URLs when right-clicking selected text
+  chrome.contextMenus.create({
+    id: "shortenSelectedText",
+    title: "Shorten selected text and copy to clipboard",
+    contexts: ["selection"],
+  });
+
+  // Add a context menu item for shortening page link
+  chrome.contextMenus.create({
+    id: "shortenPageLink",
+    title: "Shorten page link and copy to clipboard",
+    contexts: ["all"],
+  });
+});  
+
+chrome.contextMenus.onClicked.addListener(genericOnClick);
+
+// A generic onclick callback function.
+function genericOnClick(info) {
+  switch (info.menuItemId) {
+    case 'shortenUrl':
+      handleLinkClick(info.linkUrl);
+      break;
+    case 'shortenSelectedText':
+      // Checkbox item function
+      handleTextClick(info.selectionText);
+      break;
+    case 'shortenPageLink':
+      // Checkbox item function
+      handlePageLinkClick(info.pageUrl);
+      break;
+    default:
+      console.log('Standard context menu item clicked.');
+  }
+}
+
+async function handleLinkClick(linkUrl) {
+  if (linkUrl) {
+    try {
+      const shortenedUrl = await shortenUrl(linkUrl);
+      if (shortenedUrl) {
+        const currentTab = await getCurrentTab();
+        if (currentTab && currentTab.id) {
+          await chrome.tabs.sendMessage(currentTab.id, { action: "copyToClipboard", text: shortenedUrl });
+        } else {
+          console.error("No active tab found");
+        }
+      } else {
+        console.error("Failed to shorten URL");
+      }
+    } catch (error) {
+      console.error("Error handling link click:", error);
+    }
+  }
+}
+
+async function handleTextClick(selectedText) {
+  if (selectedText) {
+    try {
+      const shortenedUrl = await shortenUrl(selectedText);
+      if (shortenedUrl) {
+        const currentTab = await getCurrentTab();
+        if (currentTab && currentTab.id) {
+          await chrome.tabs.sendMessage(currentTab.id, { action: "copyToClipboard", text: shortenedUrl });
+        } else {
+          console.error("No active tab found");
+        }
+      } else {
+        console.error("Failed to shorten URL");
+      }
+    } catch (error) {
+      console.error("Error handling text click:", error);
+    }
+  }
+}
+
+async function handlePageLinkClick(pageUrl) {
+  if (pageUrl) {
+    try {
+      const shortenedUrl = await shortenUrl(pageUrl);
+      if (shortenedUrl) {
+        const currentTab = await getCurrentTab();
+        if (currentTab && currentTab.id) {
+          await chrome.tabs.sendMessage(currentTab.id, { action: "copyToClipboard", text: shortenedUrl });
+        } else {
+          console.error("No active tab found");
+        }
+      }
+    } catch (error) {
+      console.error("Error handling page link click:", error);
+    }
+  }
+}
+
 function isValidUrl(selectedText) {
   try {
     const url = new URL(selectedText);
@@ -61,19 +163,13 @@ chrome.commands.onCommand.addListener((command) => {
 })
 
 async function handleTextSelection() {
-  const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-  const currentTab = tabs[0];
+  const currentTab = await getCurrentTab();
   if (!currentTab || !currentTab.id) {
     console.error("No active tab found");
     return;
   }
 
   try {
-    await chrome.scripting.executeScript({
-      target: { tabId: currentTab.id },
-      files: ["content.js"],
-    });
-
     const response = await chrome.tabs.sendMessage(currentTab.id, { action: "getSelectedText" });
 
     if (response && response.selectedText) {
@@ -93,4 +189,9 @@ async function handleTextSelection() {
   } catch (error) {
     console.error("Error injecting content script or sending message:", error);
   }
+}
+
+async function getCurrentTab() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  return tab;
 }
