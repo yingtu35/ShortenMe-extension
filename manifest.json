@@ -5,9 +5,7 @@
   "description": "A simple URL shortener extension using ShortenMe API.",
   "permissions": [
     "activeTab",
-    "scripting",
-    "contextMenus",
-    "storage"
+    "contextMenus"
   ],
   "icons": {
     "16": "images/icon-16.png",
