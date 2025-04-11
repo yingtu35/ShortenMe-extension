@@ -28,9 +28,9 @@ function resetErrorText() {
 
 // Function to handle the response from the background script
 function handleShortenedUrlResponse(response, urlInput) {
+  document.querySelector("#url").value = urlInput;
   if (response && response.shortenedUrl) {
     // Populate the current tab URL and shortened URL in the input fields
-    document.querySelector("#url").value = urlInput;
     document.querySelector("#shortened-url").value = response.shortenedUrl;
 
     try {
