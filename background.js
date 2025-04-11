@@ -1,3 +1,5 @@
+const API_URL = "https://shortenme.link/api/shorten";
+
 chrome.runtime.onInstalled.addListener(() => {
   // Add a context menu item for shortening URLs when right-clicking a link
   chrome.contextMenus.create({
@@ -116,7 +118,7 @@ async function shortenUrl(url) {
     return null;
   }
   try {
-    const response = await fetch("http://localhost:8080/api/shorten", {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
