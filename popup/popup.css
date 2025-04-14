@@ -44,6 +44,17 @@ body {
   gap: 10px;
 }
 
+.toolbar-buttons a {
+  font-size: 24px;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.toolbar-buttons a:hover {
+  transform: scale(1.2);
+}
+
 .error-text {
   color: var(--error-color);
   display: none;
