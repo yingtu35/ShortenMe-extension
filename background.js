@@ -185,7 +185,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       if (shortenedUrl) {
         sendResponse({ shortenedUrl });
       } else {
-        sendResponse({ error: "Failed to shorten URL" });
+        sendResponse({ error: "This URL is invalid. Please try another URL" });
       }
     });
   }

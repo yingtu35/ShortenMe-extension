@@ -1,6 +1,36 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --input-text: #000000;
+  --button-bg: #007BFF;
+  --button-bg-hover: #0056b3;
+  --button-text: #ffffff;
+  --success-color: #28a785;
+  --error-color: #ff4d4d;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --input-bg: #2a2a2a;
+  --input-border: #444444;
+  --input-text: #ffffff;
+  --button-bg: #0066cc;
+  --button-bg-hover: #004c99;
+  --button-text: #ffffff;
+  --success-color: #28a785;
+  --error-color: #ff4d4d;
+}
+
 body {
   width: 400px;
   padding: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Arial, sans-serif;
 }
 
 .toolbar {
@@ -15,7 +45,7 @@ body {
 }
 
 .error-text {
-  color: red;
+  color: var(--error-color);
   display: none;
 }
 
@@ -30,20 +60,26 @@ form input {
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 form button {
   margin-top: 12px;
   padding: 10px 15px;
-  background-color: #007BFF;
-  color: white;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 form button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-bg-hover);
 }
 
 #shortened-url {
@@ -51,4 +87,8 @@ form button:hover {
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
 }

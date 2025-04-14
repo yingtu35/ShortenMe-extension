@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <h1>URL Shortener Options</h1>
+  <form>
+    <div>
+      <label for="save-history">Save the shortened URL to history</label>
+      <input type="checkbox" id="save-history" name="save-history">
+    </div>
+    <div>
+      <label for="auto-create">Automatically create page short URL when clicking extension</label>
+      <input type="checkbox" id="auto-create" name="auto-create">
+    </div>
+    <div>
+      <label for="theme-mode">Extension theme mode</label>
+      <select id="theme-mode" name="theme-mode">
+        <option value="system" selected>System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+    <a id="shortcuts-link" style="cursor: pointer;">
+      Change Keyboard Shortcut
+      <span style="margin-left: 8px; font-size: 16px;">🔗</span>
+    </a>
+  </form>
+  <script src="options.js"></script>
+</body>
+</html>

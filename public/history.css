@@ -1,11 +1,44 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --item-bg-even: #f2f2f2;
+  --item-bg-odd: #ffffff;
+  --item-hover: #d1e7dd;
+  --border-color: #ddd;
+  --header-bg: #28a785;
+  --header-text: white;
+  --danger-btn: #ff4d4d;
+  --danger-btn-hover: #ff3333;
+  --danger-btn-active: #e60000;
+  --success-color: #28a785;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --item-bg-even: #2a2a2a;
+  --item-bg-odd: #3a3a3a;
+  --item-hover: #1e6f63;
+  --border-color: #444;
+  --header-bg: #28a785;
+  --header-text: white;
+  --danger-btn: #ff4d4d;
+  --danger-btn-hover: #ff3333;
+  --danger-btn-active: #e60000;
+  --success-color: #28a785;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh; /* Changed from fixed height to minimum height */
+  min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  overflow-y: auto; /* Enable vertical scrolling when needed */
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -24,30 +57,38 @@ table {
 th, td {
   padding: 12px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: var(--item-bg-even);
 }
 
 tr:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: var(--item-bg-odd);
 }
 
 tr:hover {
-  background-color: #d1e7dd;
+  background-color: var(--item-hover);
 }
 
 th {
-  background-color: #28a785;
-  color: white;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+}
+
+a {
+  color: #28a785;
+}
+
+[data-theme="dark"] a {
+  color: #4dd2b0;
 }
 
 /* Button styles */
 #clear-all-btn {
   padding: 8px 16px;
-  background-color: #ff4d4d;
+  background-color: var(--danger-btn);
   color: white;
   border: none;
   border-radius: 4px;
@@ -57,11 +98,11 @@ th {
 }
 
 #clear-all-btn:hover {
-  background-color: #ff3333;
+  background-color: var(--danger-btn-hover);
 }
 
 #clear-all-btn:active {
-  background-color: #e60000;
+  background-color: var(--danger-btn-active);
 }
 
 /* Delete button styles */
