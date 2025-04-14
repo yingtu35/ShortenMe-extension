@@ -37,7 +37,7 @@ function handleShortenedUrlResponse(response, urlInput) {
       navigator.clipboard.writeText(response.shortenedUrl).then(() => {
         // Change the copy button text
         copyButton.textContent = "Shortened URL copied!";
-        copyButton.style.backgroundColor = "#4CAF50"; // Green background
+        copyButton.style.backgroundColor = "#28a785"; // Green background
         copyButton.style.color = "white"; // White text
         setTimeout(() => {
           resetButton();

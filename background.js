@@ -47,7 +47,7 @@ function genericOnClick(info) {
 async function handleLinkClick(linkUrl) {
   if (linkUrl) {
     try {
-      const shortenedUrl = await shortenUrl(linkUrl);
+      const shortenedUrl = await shortenUrlWithHistory(linkUrl);
       if (shortenedUrl) {
         const currentTab = await getCurrentTab();
         if (currentTab && currentTab.id) {
@@ -67,7 +67,7 @@ async function handleLinkClick(linkUrl) {
 async function handleTextClick(selectedText) {
   if (selectedText) {
     try {
-      const shortenedUrl = await shortenUrl(selectedText);
+      const shortenedUrl = await shortenUrlWithHistory(selectedText);
       if (shortenedUrl) {
         const currentTab = await getCurrentTab();
         if (currentTab && currentTab.id) {
@@ -87,7 +87,7 @@ async function handleTextClick(selectedText) {
 async function handlePageLinkClick(pageUrl) {
   if (pageUrl) {
     try {
-      const shortenedUrl = await shortenUrl(pageUrl);
+      const shortenedUrl = await shortenUrlWithHistory(pageUrl);
       if (shortenedUrl) {
         const currentTab = await getCurrentTab();
         if (currentTab && currentTab.id) {
@@ -139,14 +139,49 @@ async function shortenUrl(url) {
   }
 }
 
+// Store shortened URL in history
+async function addToHistory(originalUrl, shortenedUrl) {
+  const entry = {
+    id: shortenedUrl,
+    originalUrl,
+    shortenedUrl,
+    createdAt: new Date().toISOString()
+  };
+
+  try {
+    // Get existing entries
+    const result = await chrome.storage.local.get('urlHistory');
+    const urlHistory = result.urlHistory || [];
+    
+    // Add new entry to the beginning of the array
+    urlHistory.unshift(entry);
+    
+    // Save updated history
+    await chrome.storage.local.set({ urlHistory });
+    return true;
+  } catch (error) {
+    console.error("Error saving to history:", error);
+    return false;
+  }
+}
+
+async function shortenUrlWithHistory(url) {
+  const shortenedUrl = await shortenUrl(url);
+  
+  if (shortenedUrl) {
+    // Add to history
+    await addToHistory(url, shortenedUrl);
+  }
+  
+  return shortenedUrl;
+}
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  // get the action from the request
   const { action } = request;
-  // check if the action is to shorten the URL
   if (action === "shortenUrl") {
     // get the URL from the request
     const { url } = request;
-    shortenUrl(url).then((shortenedUrl) => {
+    shortenUrlWithHistory(url).then((shortenedUrl) => {
       if (shortenedUrl) {
         sendResponse({ shortenedUrl });
       } else {
@@ -176,7 +211,7 @@ async function handleTextSelection() {
 
     if (response && response.selectedText) {
       const selectedText = response.selectedText;
-      const shortenedUrl = await shortenUrl(selectedText);
+      const shortenedUrl = await shortenUrlWithHistory(selectedText);
 
       if (shortenedUrl) {
         await chrome.tabs.sendMessage(currentTab.id, { action: "copyToClipboard", text: shortenedUrl });

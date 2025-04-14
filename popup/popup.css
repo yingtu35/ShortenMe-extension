@@ -1,5 +1,17 @@
 body {
   width: 400px;
+  padding: 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toorbar-buttons {
+  display: flex;
+  gap: 10px;
 }
 
 .error-text {

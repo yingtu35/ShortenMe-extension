@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="history.css">
+</head>
+<body>
+  <h1>URL Shortener History</h1>
+  <div class="content-container">
+    <div style="text-align: right; margin-bottom: 10px;">
+      <button id="clear-all-btn">Clear All History</button>
+    </div>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Shortened URL</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>https://shortenme.link/</td>
+          <td><a href="https://shortenme.link/" target="_blank">https://shortenme.link/</a></td>
+          <td><button class="delete-btn">❌</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="history.js"></script>
+</body>
+</html>

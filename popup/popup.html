@@ -6,7 +6,13 @@
   <link rel="stylesheet" href="./popup.css">
 </head>
 <body>
-  <h1>URL Shortener</h1>
+  <div class="toolbar">
+    <h1>URL Shortener</h1>
+    <div class="toolbar-buttons">
+      <a href="../public/history.html" target="_blank" id="history-link">History</a>
+    </div>
+  </div>
+  </div>
   <form id="url-shorten-form">
     <input type="url" id="url" name="url" placeholder="http://example.com" required>
     <!-- Add an error text -->
