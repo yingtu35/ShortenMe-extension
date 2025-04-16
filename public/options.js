@@ -3,19 +3,18 @@ const saveHistoryCheckbox = document.getElementById('save-history');
 const autoCreateCheckbox = document.getElementById('auto-create');
 const themeModeSelect = document.getElementById('theme-mode');
 const shortcutsLink = document.getElementById('shortcuts-link');
+const saveButton = document.getElementById('save-btn');
 
 // Default options
 const defaultOptions = {
   saveHistory: true,
-  autoCreate: false,
+  autoCreate: true,
   themeMode: 'system' // 'light', 'dark', or 'system'
 };
 
 // Function to save options to chrome.storage.sync
 function saveOptions(options) {
-  chrome.storage.sync.set({ options }, () => {
-    console.log('Options saved:', options);
-  });
+  chrome.storage.sync.set({ options }, () => {});
 }
 
 // Function to load options from chrome.storage.sync
@@ -49,11 +48,12 @@ function applyTheme(mode) {
   
   // Apply the theme to the document
   document.documentElement.setAttribute('data-theme', theme);
-  console.log('Applied theme:', theme);
 }
 
 // Function to handle changes to options
-function handleOptionChange() {
+function handleOptionChange(event) {
+  event.preventDefault();
+  
   const options = {
     saveHistory: saveHistoryCheckbox.checked,
     autoCreate: autoCreateCheckbox.checked,
@@ -62,12 +62,15 @@ function handleOptionChange() {
   
   saveOptions(options);
   applyTheme(options.themeMode);
+
+  // change save button text to "Saved"
+  saveButton.textContent = 'Changes saved';
+  setTimeout(() => {
+    saveButton.textContent = 'Save Changes';
+  }, 3000);
 }
 
-// Event listeners for option changes
-saveHistoryCheckbox.addEventListener('change', handleOptionChange);
-autoCreateCheckbox.addEventListener('change', handleOptionChange);
-themeModeSelect.addEventListener('change', handleOptionChange);
+saveButton.addEventListener('click', handleOptionChange);
 
 // Event listener for keyboard shortcuts link
 shortcutsLink.addEventListener('click', () => {
