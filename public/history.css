@@ -58,6 +58,8 @@ th, td {
   padding: 12px;
   text-align: center;
   border: 1px solid var(--border-color);
+  max-width: 400px; /* Limit maximum width */
+  overflow-wrap: break-word;
 }
 
 tr:nth-child(even) {
@@ -79,6 +81,7 @@ th {
 
 a {
   color: #28a785;
+  word-break: break-all; /* Ensure long URLs in links can break anywhere */
 }
 
 [data-theme="dark"] a {
@@ -124,4 +127,21 @@ a {
   max-width: 1200px;
   padding: 20px;
   box-sizing: border-box;
+}
+
+footer {
+  margin-top: auto;
+  padding: 20px;
+  color: #7f8c8d;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: #28a785;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
