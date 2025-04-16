@@ -1,12 +1,17 @@
 {
   "manifest_version": 3,
   "name": "URL Shortener - ShortenMe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple URL shortener extension using ShortenMe API.",
   "permissions": [
     "activeTab",
     "contextMenus",
-    "storage"
+    "storage",
+    "scripting",
+    "management"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "icons": {
     "16": "images/icon-16.png",

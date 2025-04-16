@@ -1,27 +1,97 @@
 const API_URL = "https://shortenme.link/api/shorten";
 
-chrome.runtime.onInstalled.addListener(() => {
-  // Add a context menu item for shortening URLs when right-clicking a link
-  chrome.contextMenus.create({
-    id: "shortenUrl",
-    title: "Shorten the link and copy to clipboard",
-    contexts: ["link"],
-  })
+// Keep track of tabs we've already processed
+let processedTabs = new Set();
+let extensionEnabled = true;
 
-  // Add a context menu item for shortening URLs when right-clicking selected text
-  chrome.contextMenus.create({
-    id: "shortenSelectedText",
-    title: "Shorten selected text and copy to clipboard",
-    contexts: ["selection"],
-  });
+// Handle installation events
+chrome.runtime.onInstalled.addListener((details) => {
+  setupContextMenus();
+});
 
-  // Add a context menu item for shortening page link
-  chrome.contextMenus.create({
-    id: "shortenPageLink",
-    title: "Shorten page link and copy to clipboard",
-    contexts: ["all"],
+// Listen for extension activation/deactivation
+chrome.management.onEnabled.addListener((info) => {
+  if (info.id === chrome.runtime.id) {
+    extensionEnabled = true;
+    processedTabs.clear(); // Clear our tracking to force reprocessing
+    setupContextMenus();
+  }
+});
+
+chrome.management.onDisabled.addListener((info) => {
+  if (info.id === chrome.runtime.id) {
+    extensionEnabled = false;
+    processedTabs.clear(); // Clear processed tabs when disabled
+  }
+});
+
+// Setup context menu items
+function setupContextMenus() {
+  // Remove existing context menu items to prevent duplicates
+  chrome.contextMenus.removeAll(() => {
+    chrome.contextMenus.create({
+      id: "shortenUrl",
+      title: "Shorten the link and copy to clipboard",
+      contexts: ["link"],
+    });
+
+    chrome.contextMenus.create({
+      id: "shortenSelectedText",
+      title: "Shorten selected text and copy to clipboard",
+      contexts: ["selection"],
+    });
+
+    chrome.contextMenus.create({
+      id: "shortenPageLink",
+      title: "Shorten page link and copy to clipboard",
+      contexts: ["all"],
+    });
   });
-});  
+}
+
+// Helper function to check if a URL is injectable
+function isInjectableUrl(url) {
+  return url && 
+    !url.startsWith('chrome://') && 
+    !url.startsWith('chrome-extension://') && 
+    !url.startsWith('edge://') &&
+    !url.startsWith('about:');
+}
+
+// Listen for tab activation to inject content script if not already processed
+chrome.tabs.onActivated.addListener(async (activeInfo) => {
+  if (!extensionEnabled) return;
+  
+  try {
+    if (!processedTabs.has(activeInfo.tabId)) {
+      const tab = await chrome.tabs.get(activeInfo.tabId);
+      if (isInjectableUrl(tab.url)) {
+        await injectContentScriptIntoTab(tab);
+      }
+    }
+  } catch (error) {
+    console.error("Error processing activated tab:", error);
+  }
+});
+
+// Helper function to inject content script into a single tab
+async function injectContentScriptIntoTab(tab) {
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['content.js']
+    });
+    processedTabs.add(tab.id);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+// Clean up removed tabs from our processed set
+chrome.tabs.onRemoved.addListener((tabId) => {
+  processedTabs.delete(tabId);
+});
 
 chrome.contextMenus.onClicked.addListener(genericOnClick);
 
@@ -32,11 +102,9 @@ function genericOnClick(info) {
       handleLinkClick(info.linkUrl);
       break;
     case 'shortenSelectedText':
-      // Checkbox item function
       handleTextClick(info.selectionText);
       break;
     case 'shortenPageLink':
-      // Checkbox item function
       handlePageLinkClick(info.pageUrl);
       break;
     default:
@@ -112,7 +180,6 @@ function isValidUrl(selectedText) {
 }
 
 async function shortenUrl(url) {
-  // Check if the URL is valid
   if (!isValidUrl(url)) {
     console.error("Invalid URL:", url);
     return null;
@@ -167,8 +234,10 @@ async function addToHistory(originalUrl, shortenedUrl) {
 
 async function shortenUrlWithHistory(url) {
   const shortenedUrl = await shortenUrl(url);
+  const storageOptions = await chrome.storage.sync.get('options');
+  const options = storageOptions.options || { saveHistory: true };
   
-  if (shortenedUrl) {
+  if (shortenedUrl && options.saveHistory) {
     // Add to history
     await addToHistory(url, shortenedUrl);
   }
