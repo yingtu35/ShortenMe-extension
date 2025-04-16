@@ -79,7 +79,6 @@ form input {
 }
 
 form button {
-  margin-top: 12px;
   padding: 10px 15px;
   background-color: var(--button-bg);
   color: var(--button-text);

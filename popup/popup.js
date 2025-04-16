@@ -104,11 +104,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
-// Fetch the current tab's URL and shorten it when the popup is loaded
-window.addEventListener("DOMContentLoaded", async () => {
-  // Load and apply the theme
-  await loadTheme();
-  
+function shortenCurrentTabUrl() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const currentTabUrl = tabs[0]?.url;
     if (currentTabUrl) {
@@ -118,4 +114,16 @@ window.addEventListener("DOMContentLoaded", async () => {
       });
     }
   });
+}
+
+// Fetch the current tab's URL and shorten it when the popup is loaded
+window.addEventListener("DOMContentLoaded", async () => {
+  // Load and apply the theme
+  await loadTheme();
+
+  const storageOptions = await chrome.storage.sync.get('options');
+  const options = storageOptions.options || { autoCreate: true };
+  if (options.autoCreate) {
+    shortenCurrentTabUrl();
+  }
 });
