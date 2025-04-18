@@ -17,8 +17,7 @@ document.querySelector("#url-shorten-form").addEventListener("submit", function 
 
 function resetButton() {
   copyButton.textContent = "Shorten URL and copy to clipboard";
-  copyButton.style.backgroundColor = ""; // Reset to default
-  copyButton.style.color = ""; // Reset to default
+  copyButton.disabled = false;
 }
 
 function resetErrorText() {
@@ -37,11 +36,10 @@ function handleShortenedUrlResponse(response, urlInput) {
       navigator.clipboard.writeText(response.shortenedUrl).then(() => {
         // Change the copy button text
         copyButton.textContent = "Shortened URL copied!";
-        copyButton.style.backgroundColor = "#28a785"; // Green background
-        copyButton.style.color = "white"; // White text
+        copyButton.disabled = true;
         setTimeout(() => {
           resetButton();
-        }, 3000); // Reset after 3 seconds
+        }, 2000); // Reset after 2 seconds
       });
     } catch (err) {
       // Display the error message

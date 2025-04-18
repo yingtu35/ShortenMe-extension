@@ -11,6 +11,7 @@
   --danger-btn-hover: #ff3333;
   --danger-btn-active: #e60000;
   --success-color: #28a785;
+  --btn-bg-disabled: #ccc;
 }
 
 [data-theme="dark"] {
@@ -26,6 +27,7 @@
   --danger-btn-hover: #ff3333;
   --danger-btn-active: #e60000;
   --success-color: #28a785;
+  --btn-bg-disabled: #555;
 }
 
 body {
@@ -106,6 +108,15 @@ a {
 
 #clear-all-btn:active {
   background-color: var(--danger-btn-active);
+}
+
+#clear-all-btn:disabled {
+  background-color: var(--btn-bg-disabled);
+  color: var(--text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: background-color 0.3s ease;
 }
 
 /* Delete button styles */

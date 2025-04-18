@@ -8,6 +8,7 @@
   --btn-bg: #28a785;
   --btn-bg-hover: #1e6f63;
   --btn-bg-active: #195e54;
+  --btn-bg-disabled: #ccc;
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,7 @@
   --btn-bg: #28a785;
   --btn-bg-hover: #1e6f63;
   --btn-bg-active: #195e54;
+  --btn-bg-disabled: #555;
 }
 
 body {
@@ -145,4 +147,13 @@ footer a:hover {
 
 #save-btn:active {
   background-color: var(--btn-bg-active);
+}
+
+#save-btn:disabled {
+  background-color: var(--btn-bg-disabled);
+  color: var(--text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: background-color 0.3s ease;
 }

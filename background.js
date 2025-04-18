@@ -4,9 +4,29 @@ const API_URL = "https://shortenme.link/api/shorten";
 let processedTabs = new Set();
 let extensionEnabled = true;
 
+function initOptions() {
+  const initialOptions = {
+    saveHistory: true,
+    autoCreate: true,
+    themeMode: 'system' // Default to system theme
+  };
+  chrome.storage.sync.set({ options: initialOptions });
+}
+
+function initHistory() {
+  const initialHistory = [];
+  chrome.storage.local.set({ urlHistory: initialHistory });
+}
+
 // Handle installation events
 chrome.runtime.onInstalled.addListener((details) => {
   setupContextMenus();
+
+  if (details.reason === "install") {
+    initOptions();
+    initHistory();
+    chrome.tabs.create({ url: "public/onboarding.html" });
+  }
 });
 
 // Listen for extension activation/deactivation

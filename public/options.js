@@ -65,8 +65,11 @@ function handleOptionChange(event) {
 
   // change save button text to "Saved"
   saveButton.textContent = 'Changes saved';
+  saveButton.disabled = true;
+
   setTimeout(() => {
     saveButton.textContent = 'Save Changes';
+    saveButton.disabled = false;
   }, 3000);
 }
 

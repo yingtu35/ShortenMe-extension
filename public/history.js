@@ -143,15 +143,11 @@ async function init() {
     clearAllButton.addEventListener('click', async () => {
       if (confirm('Are you sure you want to clear all history?')) {
         await clearHistory();
-        clearAllButton.style.pointerEvents = 'none';
         clearAllButton.disabled = true;
         clearAllButton.textContent = 'History cleared!';
-        clearAllButton.style.backgroundColor = '#28a785';
         setTimeout(() => {
-          clearAllButton.style.pointerEvents = 'auto';
           clearAllButton.disabled = false;
           clearAllButton.textContent = 'Clear All History';
-          clearAllButton.style.backgroundColor = ''; // Reset to default
         }
         , 3000);
       }

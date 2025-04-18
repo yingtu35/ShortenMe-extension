@@ -4,8 +4,9 @@
   --input-bg: #ffffff;
   --input-border: #cccccc;
   --input-text: #000000;
-  --button-bg: #007BFF;
-  --button-bg-hover: #0056b3;
+  --button-bg: #28a785;
+  --button-bg-hover: #1e6f63;
+  --button-bg-disabled: #ccc;
   --button-text: #ffffff;
   --success-color: #28a785;
   --error-color: #ff4d4d;
@@ -17,8 +18,9 @@
   --input-bg: #2a2a2a;
   --input-border: #444444;
   --input-text: #ffffff;
-  --button-bg: #0066cc;
-  --button-bg-hover: #004c99;
+  --button-bg: #28a785;
+  --button-bg-hover: #1e6f63;
+  --button-bg-disabled: #555;
   --button-text: #ffffff;
   --success-color: #28a785;
   --error-color: #ff4d4d;
@@ -47,6 +49,7 @@ body {
 .toolbar-buttons a {
   font-size: 24px;
   text-decoration: none;
+  pointer-events: cursor;
   margin: 0 10px;
   transition: transform 0.2s ease-in-out;
 }
@@ -90,6 +93,14 @@ form button {
 
 form button:hover {
   background-color: var(--button-bg-hover);
+}
+
+form button:disabled {
+  background-color: var(--button-bg-disabled);
+  color: var(--text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 #shortened-url {
