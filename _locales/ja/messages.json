@@ -1,0 +1,210 @@
+{
+  "extName": {
+    "message": "URL短縮 - ShortenMe",
+    "description": "The name of the extension"
+  },
+  "extDescription": {
+    "message": "ShortenMe APIを使用したシンプルなURL短縮拡張機能。",
+    "description": "The description of the extension"
+  },
+  "appName": {
+    "message": "ShortenMe",
+    "description": "The name of the app"
+  },
+  "pageTitle": {
+    "message": "$1 - URL短縮",
+    "description": "Title format: app name - brief description"
+  },
+  "popupTitle": {
+    "message": "URL短縮",
+    "description": "Popup title heading"
+  },
+  "shortenUrlButton": {
+    "message": "URLを短縮してクリップボードにコピー",
+    "description": "Button text for shortening the URL and copying to clipboard"
+  },
+  "shortenedUrlCopied": {
+    "message": "短縮URLをコピーしました！",
+    "description": "Button text after a URL has been successfully copied"
+  },
+  "failedCopyToClipboard": {
+    "message": "短縮URLをクリップボードにコピーできませんでした。",
+    "description": "Error message when clipboard write fails"
+  },
+  "unexpectedError": {
+    "message": "予期せぬエラーが発生しました。",
+    "description": "Fallback error message for unknown failures"
+  },
+  "optionsTitle": {
+    "message": "URL短縮オプション",
+    "description": "Options page heading"
+  },
+  "saveChangesButton": {
+    "message": "変更を保存",
+    "description": "Text for save changes button in options"
+  },
+  "saveHistoryLabel": {
+    "message": "短縮URLを履歴に保存する",
+    "description": "Label for save history checkbox"
+  },
+  "autoCreateLabel": {
+    "message": "拡張機能クリック時にページの短縮URLを自動作成する",
+    "description": "Label for auto-create checkbox"
+  },
+  "themeModeLabel": {
+    "message": "拡張機能のテーマモード",
+    "description": "Label for theme mode select"
+  },
+  "changeKeyboardShortcutsLabel": {
+    "message": "キーボードショートカットを変更",
+    "description": "Label for shortcuts section"
+  },
+  "clickLinkLabel": {
+    "message": "クリック🔗",
+    "description": "Text for shortcut change link"
+  },
+  "createdByLabel": {
+    "message": "作成者",
+    "description": "Label before author name"
+  },
+  "termsOfServiceLabel": {
+    "message": "利用規約",
+    "description": "Terms of Service link text"
+  },
+  "privacyPolicyLabel": {
+    "message": "プライバシーポリシー",
+    "description": "Privacy Policy link text"
+  },
+  "historyTitle": {
+    "message": "URL短縮履歴",
+    "description": "Heading for the history page"
+  },
+  "clearAllHistoryButton": {
+    "message": "すべての履歴を消去",
+    "description": "Text for clear all history button"
+  },
+  "originalUrlLabel": {
+    "message": "元のURL",
+    "description": "Table header for original URL"
+  },
+  "shortenedUrlLabel": {
+    "message": "短縮URL",
+    "description": "Table header for shortened URL"
+  },
+  "deleteLabel": {
+    "message": "削除",
+    "description": "Table header for delete column"
+  },
+  "noHistoryMessage": {
+    "message": "履歴に短縮URLはありません",
+    "description": "Message when history is empty"
+  },
+  "confirmClearHistory": {
+    "message": "本当にすべての履歴を消去しますか？",
+    "description": "Confirmation prompt when clearing history"
+  },
+  "historyClearedMessage": {
+    "message": "履歴を消去しました！",
+    "description": "Message shown after clearing history"
+  },
+  "changesSavedMessage": {
+    "message": "変更を保存しました",
+    "description": "Message shown after saving options"
+  },
+  "themeOptionSystem": {
+    "message": "システム",
+    "description": "Option label for system theme mode"
+  },
+  "themeOptionLight": {
+    "message": "ライト",
+    "description": "Option label for light theme mode"
+  },
+  "themeOptionDark": {
+    "message": "ダーク",
+    "description": "Option label for dark theme mode"
+  },
+  "onboardingThankyouMessage": {
+    "message": "ようこそ <span class=\"app-name-text\">$1</span> へ！",
+    "description": "Onboarding header thanking user for installing, $1 is app name"
+  },
+  "onboardingWelcomeMessage": {
+    "message": "<span class=\"app-name-text\">$1</span> でリンク共有が簡単になります",
+    "description": "Welcome message on onboarding page, $1 is app name"
+  },
+  "onboardingQuickGuideMessage": {
+    "message": "以下のクイックガイドをチェックして始めましょう!",
+    "description": "Intro to quick guide on onboarding"
+  },
+  "onboardingPinExtensionTitle": {
+    "message": "拡張機能をピン留めする",
+    "description": "Title for pin extension step"
+  },
+  "onboardingPinExtensionMessage": {
+    "message": "<span class=\"app-name-text\">$1</span> をツールバーにピン留めして簡単にアクセスできるようにします",
+    "description": "Instruction to pin the extension, $1 is app name"
+  },
+  "onboardingClickToShortenTitle": {
+    "message": "クリックして短縮",
+    "description": "Title for click to shorten step"
+  },
+  "onboardingClickToShortenMessage": {
+    "message": "ワンクリックで短縮URLが完成！",
+    "description": "Instruction for clicking to shorten"
+  },
+  "onboardingClickToShortenKeyboardMessage": {
+    "message": "キーボード派の方へ：",
+    "description": "Label for keyboard shortcut instructions"
+  },
+  "onboardingRightClickShorteningTitle": {
+    "message": "右クリックで短縮",
+    "description": "Title for right-click shortening step"
+  },
+  "onboardingRightClickShorteningMessage": {
+    "message": "ページ上のリンクやテキストを右クリックして、短縮URLを即座に生成します。",
+    "description": "Instruction for right-click shortening"
+  },
+  "onboardingViewHistoryTitle": {
+    "message": "履歴を表示",
+    "description": "Title for view history step"
+  },
+  "onboardingViewHistoryMessage": {
+    "message": "すべての短縮URLを1か所で確認できます",
+    "description": "Instruction to view history"
+  },
+  "onboardingAdjustThemeTitle": {
+    "message": "テーマを調整",
+    "description": "Title for theme adjustment step"
+  },
+  "onboardingAdjustThemeMessage": {
+    "message": "ライトモードとダークモードを切り替えて <span class=\"app-name-text\">$1</span> の外観をカスタマイズします",
+    "description": "Instruction to adjust theme, $1 is app name"
+  },
+  "onboardingAllSetTitle": {
+    "message": "準備完了です！",
+    "description": "Title indicating onboarding completion"
+  },
+  "onboardingAllSetMessage": {
+    "message": "タブを閉じて、<span class=\"app-name-text\">$1</span> で最初のURLを短縮しましょう",
+    "description": "Final message on onboarding page, $1 is app name"
+  },
+  "contextMenuShortenLinkTitle": {
+    "message": "リンクを短縮してクリップボードにコピー",
+    "description": "Context menu title for link shortening"
+  },
+  "contextMenuShortenSelectedTextTitle": {
+    "message": "選択したテキストを短縮してクリップボードにコピー",
+    "description": "Context menu title for selected text shortening"
+  },
+  "contextMenuShortenPageLinkTitle": {
+    "message": "ページのリンクを短縮してクリップボードにコピー",
+    "description": "Context menu title for page link shortening"
+  },
+  "invalidUrlError": {
+    "message": "このURLは無効です。別のURLをお試しください",
+    "description": "Error message when user inputs an invalid URL"
+  },
+  "noTextSelected": {
+    "message": "テキストが選択されていません。",
+    "description": "Error shown when user tries to shorten without selecting text"
+  }
+}
