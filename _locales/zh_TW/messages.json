@@ -1,0 +1,210 @@
+{
+  "extName": {
+    "message": "URL 縮網址 - ShortenMe",
+    "description": "The name of the extension"
+  },
+  "extDescription": {
+    "message": "一個使用 ShortenMe API 的簡單 URL 縮網址擴充功能。",
+    "description": "The description of the extension"
+  },
+  "appName": {
+    "message": "ShortenMe",
+    "description": "The name of the app"
+  },
+  "pageTitle": {
+    "message": "$1 - URL 縮網址",
+    "description": "Title format: app name - brief description"
+  },
+  "popupTitle": {
+    "message": "URL 縮網址",
+    "description": "Popup title heading"
+  },
+  "shortenUrlButton": {
+    "message": "進行縮網址並複製到剪貼簿",
+    "description": "Button text for shortening the URL and copying to clipboard"
+  },
+  "shortenedUrlCopied": {
+    "message": "已複製縮網址 URL！",
+    "description": "Button text after a URL has been successfully copied"
+  },
+  "failedCopyToClipboard": {
+    "message": "無法將縮網址 URL 複製到剪貼簿。",
+    "description": "Error message when clipboard write fails"
+  },
+  "unexpectedError": {
+    "message": "發生意外錯誤。",
+    "description": "Fallback error message for unknown failures"
+  },
+  "optionsTitle": {
+    "message": "ShortenMe 縮網址設定",
+    "description": "Options page heading"
+  },
+  "saveChangesButton": {
+    "message": "儲存變更",
+    "description": "Text for save changes button in options"
+  },
+  "saveHistoryLabel": {
+    "message": "將縮網址 URL 儲存到歷史記錄",
+    "description": "Label for save history checkbox"
+  },
+  "autoCreateLabel": {
+    "message": "點擊擴充功能時自動建立頁面的縮網址 URL",
+    "description": "Label for auto-create checkbox"
+  },
+  "themeModeLabel": {
+    "message": "選取主題",
+    "description": "Label for theme mode select"
+  },
+  "changeKeyboardShortcutsLabel": {
+    "message": "變更鍵盤快捷鍵",
+    "description": "Label for shortcuts section"
+  },
+  "clickLinkLabel": {
+    "message": "點擊 🔗",
+    "description": "Text for shortcut change link"
+  },
+  "createdByLabel": {
+    "message": "作者",
+    "description": "Label before author name"
+  },
+  "termsOfServiceLabel": {
+    "message": "服務條款",
+    "description": "Terms of Service link text"
+  },
+  "privacyPolicyLabel": {
+    "message": "隱私權政策",
+    "description": "Privacy Policy link text"
+  },
+  "historyTitle": {
+    "message": "ShortenMe 縮網址歷史記錄",
+    "description": "Heading for the history page"
+  },
+  "clearAllHistoryButton": {
+    "message": "清除所有歷史記錄",
+    "description": "Text for clear all history button"
+  },
+  "originalUrlLabel": {
+    "message": "原始 URL",
+    "description": "Table header for original URL"
+  },
+  "shortenedUrlLabel": {
+    "message": "縮網址 URL",
+    "description": "Table header for shortened URL"
+  },
+  "deleteLabel": {
+    "message": "刪除記錄",
+    "description": "Table header for delete column"
+  },
+  "noHistoryMessage": {
+    "message": "目前尚無縮網址 URL 歷史記錄",
+    "description": "Message when history is empty"
+  },
+  "confirmClearHistory": {
+    "message": "您確定要清除所有歷史記錄嗎？",
+    "description": "Confirmation prompt when clearing history"
+  },
+  "historyClearedMessage": {
+    "message": "歷史記錄已清除！",
+    "description": "Message shown after clearing history"
+  },
+  "changesSavedMessage": {
+    "message": "變更已儲存",
+    "description": "Message shown after saving options"
+  },
+  "themeOptionSystem": {
+    "message": "系統",
+    "description": "Option label for system theme mode"
+  },
+  "themeOptionLight": {
+    "message": "淺色",
+    "description": "Option label for light theme mode"
+  },
+  "themeOptionDark": {
+    "message": "深色",
+    "description": "Option label for dark theme mode"
+  },
+  "onboardingThankyouMessage": {
+    "message": "感謝您安裝 <span class=\"app-name-text\">$1</span>！",
+    "description": "Onboarding header thanking user for installing, $1 is app name"
+  },
+  "onboardingWelcomeMessage": {
+    "message": "<span class=\"app-name-text\">$1</span> 讓分享連結變得簡單！",
+    "description": "Welcome message on onboarding page, $1 is app name"
+  },
+  "onboardingQuickGuideMessage": {
+    "message": "查看下方的快速指南以開始使用",
+    "description": "Intro to quick guide on onboarding"
+  },
+  "onboardingPinExtensionTitle": {
+    "message": "釘選擴充功能",
+    "description": "Title for pin extension step"
+  },
+  "onboardingPinExtensionMessage": {
+    "message": "將 <span class=\"app-name-text\">$1</span> 固定到工具列，方便快速使用",
+    "description": "Instruction to pin the extension, $1 is app name"
+  },
+  "onboardingClickToShortenTitle": {
+    "message": "一鍵縮網址",
+    "description": "Title for click to shorten step"
+  },
+  "onboardingClickToShortenMessage": {
+    "message": "只需點擊圖示即可立刻使用縮網址！",
+    "description": "Instruction for clicking to shorten"
+  },
+  "onboardingClickToShortenKeyboardMessage": {
+    "message": "我們也準備了快捷鍵：",
+    "description": "Label for keyboard shortcut instructions"
+  },
+  "onboardingRightClickShorteningTitle": {
+    "message": "選取網站內容",
+    "description": "Title for right-click shortening step"
+  },
+  "onboardingRightClickShorteningMessage": {
+    "message": "右鍵點擊頁面上的任何連結或文字以立即產生縮網址。",
+    "description": "Instruction for right-click shortening"
+  },
+  "onboardingViewHistoryTitle": {
+    "message": "檢視歷史記錄",
+    "description": "Title for view history step"
+  },
+  "onboardingViewHistoryMessage": {
+    "message": "歷史記錄讓您隨時查看過去的縮網址",
+    "description": "Instruction to view history"
+  },
+  "onboardingAdjustThemeTitle": {
+    "message": "隨選主題",
+    "description": "Title for theme adjustment step"
+  },
+  "onboardingAdjustThemeMessage": {
+    "message": "您可以透過設定自訂 <span class=\"app-name-text\">$1</span> 主題顏色",
+    "description": "Instruction to adjust theme, $1 is app name"
+  },
+  "onboardingAllSetTitle": {
+    "message": "一切就緒！",
+    "description": "Title indicating onboarding completion"
+  },
+  "onboardingAllSetMessage": {
+    "message": "關閉此頁，開始享受 <span class=\"app-name-text\">$1</span> 帶來的便利吧！",
+    "description": "Final message on onboarding page, $1 is app name"
+  },
+  "contextMenuShortenLinkTitle": {
+    "message": "縮短連結並複製到剪貼簿",
+    "description": "Context menu title for link shortening"
+  },
+  "contextMenuShortenSelectedTextTitle": {
+    "message": "縮短選取的文字並複製到剪貼簿",
+    "description": "Context menu title for selected text shortening"
+  },
+  "contextMenuShortenPageLinkTitle": {
+    "message": "縮短頁面連結並複製到剪貼簿",
+    "description": "Context menu title for page link shortening"
+  },
+  "invalidUrlError": {
+    "message": "此 URL 無效。請嘗試其他 URL",
+    "description": "Error message when user inputs an invalid URL"
+  },
+  "noTextSelected": {
+    "message": "未選取任何文字。",
+    "description": "Error shown when user tries to shorten without selecting text"
+  }
+}
