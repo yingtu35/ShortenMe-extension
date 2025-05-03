@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="toolbar">
-    <h1>URL Shortener</h1>
+    <h1 data-i18n="popupTitle">URL Shortener</h1>
     <div class="toolbar-buttons">
       <a href="../public/history.html" target="_blank" id="history-link" title="View URL History">📜</a>
       <a href="../public/options.html" target="_blank" id="options-link" title="Extension Settings">⚙️</a>
@@ -17,7 +17,7 @@
     <input type="url" id="url" name="url" placeholder="http://example.com" required>
     <!-- Add an error text -->
     <p id="error-text" class="error-text"></p>
-    <button id="copy-button" type="submit">Shorten URL and copy to clipboard</button>
+    <button id="copy-button" type="submit" data-i18n="shortenUrlButton">Shorten URL and copy to clipboard</button>
   </form>
   <!-- Add a input that will populate the shortenedUrl, cannot be edited -->
   <input type="text" id="shortened-url" name="shortened-url" readonly>

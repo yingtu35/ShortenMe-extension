@@ -1,0 +1,30 @@
+{
+  "extName": {
+    "message": "URL Shortener - ShortenMe",
+    "description": "The name of the extension"
+  },
+  "extDescription": {
+    "message": "A simple URL shortener extension using ShortenMe API.",
+    "description": "The description of the extension"
+  },
+  "popupTitle": {
+    "message": "URL Shortener",
+    "description": "Popup title heading"
+  },
+  "shortenUrlButton": {
+    "message": "Shorten URL and copy to clipboard",
+    "description": "Button text for shortening the URL and copying to clipboard"
+  },
+  "shortenedUrlCopied": {
+    "message": "Shortened URL copied!",
+    "description": "Button text after a URL has been successfully copied"
+  },
+  "failedCopyToClipboard": {
+    "message": "Failed to copy the shortened URL to clipboard.",
+    "description": "Error message when clipboard write fails"
+  },
+  "unexpectedError": {
+    "message": "Unexpected error occurred.",
+    "description": "Fallback error message for unknown failures"
+  }
+}

@@ -16,7 +16,7 @@ document.querySelector("#url-shorten-form").addEventListener("submit", function 
 });
 
 function resetButton() {
-  copyButton.textContent = "Shorten URL and copy to clipboard";
+  copyButton.textContent = chrome.i18n.getMessage("shortenUrlButton");
   copyButton.disabled = false;
 }
 
@@ -35,7 +35,7 @@ function handleShortenedUrlResponse(response, urlInput) {
     try {
       navigator.clipboard.writeText(response.shortenedUrl).then(() => {
         // Change the copy button text
-        copyButton.textContent = "Shortened URL copied!";
+        copyButton.textContent = chrome.i18n.getMessage("shortenedUrlCopied");
         copyButton.disabled = true;
         setTimeout(() => {
           resetButton();
@@ -43,7 +43,7 @@ function handleShortenedUrlResponse(response, urlInput) {
       });
     } catch (err) {
       // Display the error message
-      errorText.textContent = "Failed to copy the shortened URL to clipboard.";
+      errorText.textContent = chrome.i18n.getMessage("failedCopyToClipboard");
       errorText.style.display = "block";
     }
   } else if (response && response.error) {
@@ -52,7 +52,7 @@ function handleShortenedUrlResponse(response, urlInput) {
     errorText.style.display = "block";
   } else {
     // Handle unexpected response
-    errorText.textContent = "Unexpected error occurred.";
+    errorText.textContent = chrome.i18n.getMessage("unexpectedError");
     errorText.style.display = "block";
   }
 }
@@ -116,6 +116,13 @@ function shortenCurrentTabUrl() {
 
 // Fetch the current tab's URL and shorten it when the popup is loaded
 window.addEventListener("DOMContentLoaded", async () => {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const messageKey = element.getAttribute("data-i18n");
+    const message = chrome.i18n.getMessage(messageKey);
+    if (message) {
+      element.textContent = message;
+    }
+  });
   // Load and apply the theme
   await loadTheme();
 
