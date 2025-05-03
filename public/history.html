@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL Shortener</title>
+  <title data-i18n="pageTitle">ShortenMe - URL Shortener</title>
   <link rel="stylesheet" href="history.css">
 </head>
 <body>
-  <h1>URL Shortener History</h1>
+  <h1 data-i18n="historyTitle">URL Shortener History</h1>
   <div class="content-container">
     <div style="text-align: right; margin-bottom: 10px;">
-      <button id="clear-all-btn">Clear All History</button>
+      <button id="clear-all-btn" data-i18n="clearAllHistoryButton">Clear All History</button>
     </div>
     <table border="1">
       <thead>
         <tr>
-          <th>Original URL</th>
-          <th>Shortened URL</th>
-          <th>Delete</th>
+          <th data-i18n="originalUrlLabel">Original URL</th>
+          <th data-i18n="shortenedUrlLabel">Shortened URL</th>
+          <th data-i18n="deleteLabel">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -30,8 +30,8 @@
     </table>
   </div>
   <footer>
-    <p>&copy; 2025 ShortenMe | Created by <a href="https://github.com/yingtu35" target="_blank">Ying Tu</a></p>
-    <p><a href="https://shortenme.link/terms" target="_blank">Terms of Service</a> | <a href="https://shortenme.link/privacy" target="_blank">Privacy Policy</a></p>
+    <p>&copy; 2025 ShortenMe | <span data-i18n="createdByLabel">Created by</span> <a href="https://github.com/yingtu35" target="_blank">Ying Tu</a></p>
+    <p><a href="https://shortenme.link/terms" target="_blank" data-i18n="termsOfServiceLabel">Terms of Service</a> | <a href="https://shortenme.link/privacy" target="_blank" data-i18n="privacyPolicyLabel">Privacy Policy</a></p>
   </footer>
   <script src="history.js"></script>
 </body>

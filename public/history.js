@@ -52,7 +52,7 @@ function displayHistory(history) {
     const row = document.createElement('tr');
     const cell = document.createElement('td');
     cell.colSpan = 3;
-    cell.textContent = 'No shortened URLs in history';
+    cell.textContent = chrome.i18n.getMessage('noHistoryMessage');
     cell.style.textAlign = 'center';
     row.appendChild(cell);
     tableBody.appendChild(row);
@@ -141,13 +141,13 @@ async function init() {
   const clearAllButton = document.getElementById('clear-all-btn');
   if (clearAllButton) {
     clearAllButton.addEventListener('click', async () => {
-      if (confirm('Are you sure you want to clear all history?')) {
+      if (confirm(chrome.i18n.getMessage('confirmClearHistory'))) {
         await clearHistory();
         clearAllButton.disabled = true;
-        clearAllButton.textContent = 'History cleared!';
+        clearAllButton.textContent = chrome.i18n.getMessage('historyClearedMessage');
         setTimeout(() => {
           clearAllButton.disabled = false;
-          clearAllButton.textContent = 'Clear All History';
+          clearAllButton.textContent = chrome.i18n.getMessage('clearAllHistoryButton');
         }
         , 3000);
       }
@@ -173,4 +173,14 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', ()=> {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const messageKey = element.getAttribute("data-i18n");
+    const message = chrome.i18n.getMessage(messageKey);
+    if (message) {
+      element.textContent = message;
+    }
+  });
+
+  init();
+});

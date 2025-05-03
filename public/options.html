@@ -3,39 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL Shortener Options</title>
+  <title data-i18n="pageTitle">ShortenMe - URL Shortener</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
-  <h1>URL Shortener Options</h1>
+  <h1 data-i18n="optionsTitle">URL Shortener Options</h1>
   <form>
     <div style="text-align: right; margin-bottom: 10px;">
-      <button id="save-btn">Save Changes</button>
+      <button id="save-btn" data-i18n="saveChangesButton">Save Changes</button>
     </div>
     <div class="form-group">
-      <label for="save-history">Save the shortened URL to history</label>
+      <label for="save-history" data-i18n="saveHistoryLabel">Save the shortened URL to history</label>
       <input type="checkbox" id="save-history" name="save-history">
     </div>
     <div class="form-group">
-      <label for="auto-create">Automatically create page short URL when clicking extension</label>
+      <label for="auto-create" data-i18n="autoCreateLabel">Automatically create page short URL when clicking extension</label>
       <input type="checkbox" id="auto-create" name="auto-create">
     </div>
     <div class="form-group">
-      <label for="theme-mode">Extension theme mode</label>
+      <label for="theme-mode" data-i18n="themeModeLabel">Extension theme mode</label>
       <select id="theme-mode" name="theme-mode">
-        <option value="system" selected>System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
+        <option value="system" selected data-i18n="themeOptionSystem">System</option>
+        <option value="light" data-i18n="themeOptionLight">Light</option>
+        <option value="dark" data-i18n="themeOptionDark">Dark</option>
       </select>
     </div>
     <div class="form-group">
-      <span>Change keyboard shortcuts</span>
-      <a id="shortcuts-link" class="shortcuts-link" href="chrome://extensions/shortcuts" target="_blank"><span style="margin-left: 8px; font-size: 16px;">Click 🔗</span></a>
+      <span data-i18n="changeKeyboardShortcutsLabel">Change keyboard shortcuts</span>
+      <a id="shortcuts-link" class="shortcuts-link" href="chrome://extensions/shortcuts" target="_blank"><span style="margin-left: 8px; font-size: 16px;" data-i18n="clickLinkLabel">Click 🔗</span></a>
     </div>
   </form>
   <footer>
-    <p>&copy; 2025 ShortenMe | Created by <a href="https://github.com/yingtu35" target="_blank">Ying Tu</a></p>
-    <p><a href="https://shortenme.link/terms" target="_blank">Terms of Service</a> | <a href="https://shortenme.link/privacy" target="_blank">Privacy Policy</a></p>
+    <p>&copy; 2025 ShortenMe | <span data-i18n="createdByLabel">Created by</span> <a href="https://github.com/yingtu35" target="_blank">Ying Tu</a></p>
+    <p><a href="https://shortenme.link/terms" target="_blank" data-i18n="termsOfServiceLabel">Terms of Service</a> | <a href="https://shortenme.link/privacy" target="_blank" data-i18n="privacyPolicyLabel">Privacy Policy</a></p>
   </footer>
   <script src="options.js"></script>
 </body>

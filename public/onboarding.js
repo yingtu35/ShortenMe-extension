@@ -37,6 +37,22 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+  // Replace i18n placeholders in onboarding page
+  const appName = chrome.i18n.getMessage('appName');
+  // Set document title
+  const titleEl = document.querySelector('title[data-i18n="pageTitle"]');
+  if (titleEl) {
+    titleEl.textContent = chrome.i18n.getMessage('pageTitle', [appName]);
+  }
+  // Replace all data-i18n elements
+  document.body.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const message = chrome.i18n.getMessage(key, [appName]);
+    if (message) {
+      el.innerHTML = message;
+    }
+  });
+
   loadTheme();
 
   // Hide scroll indicator when user reaches action button

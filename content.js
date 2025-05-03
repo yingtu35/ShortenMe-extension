@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if (selectedText) {
       sendResponse({ selectedText });
     } else {
-      sendResponse({ error: "No text selected" });
+      sendResponse({ error: chrome.i18n.getMessage("noTextSelected") });
     }
   } else if (request.action === "copyToClipboard") {
     const text = request.text;

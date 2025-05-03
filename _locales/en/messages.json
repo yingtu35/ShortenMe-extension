@@ -7,6 +7,14 @@
     "message": "A simple URL shortener extension using ShortenMe API.",
     "description": "The description of the extension"
   },
+  "appName": {
+    "message": "ShortenMe",
+    "description": "The name of the app"
+  },
+  "pageTitle": {
+    "message": "$1 - URL Shortener",
+    "description": "Title format: app name - brief description"
+  },
   "popupTitle": {
     "message": "URL Shortener",
     "description": "Popup title heading"
@@ -26,5 +34,177 @@
   "unexpectedError": {
     "message": "Unexpected error occurred.",
     "description": "Fallback error message for unknown failures"
+  },
+  "optionsTitle": {
+    "message": "URL Shortener Options",
+    "description": "Options page heading"
+  },
+  "saveChangesButton": {
+    "message": "Save Changes",
+    "description": "Text for save changes button in options"
+  },
+  "saveHistoryLabel": {
+    "message": "Save the shortened URL to history",
+    "description": "Label for save history checkbox"
+  },
+  "autoCreateLabel": {
+    "message": "Automatically create page short URL when clicking extension",
+    "description": "Label for auto-create checkbox"
+  },
+  "themeModeLabel": {
+    "message": "Extension theme mode",
+    "description": "Label for theme mode select"
+  },
+  "changeKeyboardShortcutsLabel": {
+    "message": "Change keyboard shortcuts",
+    "description": "Label for shortcuts section"
+  },
+  "clickLinkLabel": {
+    "message": "Click 🔗",
+    "description": "Text for shortcut change link"
+  },
+  "createdByLabel": {
+    "message": "Created by",
+    "description": "Label before author name"
+  },
+  "termsOfServiceLabel": {
+    "message": "Terms of Service",
+    "description": "Terms of Service link text"
+  },
+  "privacyPolicyLabel": {
+    "message": "Privacy Policy",
+    "description": "Privacy Policy link text"
+  },
+  "historyTitle": {
+    "message": "URL Shortener History",
+    "description": "Heading for the history page"
+  },
+  "clearAllHistoryButton": {
+    "message": "Clear All History",
+    "description": "Text for clear all history button"
+  },
+  "originalUrlLabel": {
+    "message": "Original URL",
+    "description": "Table header for original URL"
+  },
+  "shortenedUrlLabel": {
+    "message": "Shortened URL",
+    "description": "Table header for shortened URL"
+  },
+  "deleteLabel": {
+    "message": "Delete",
+    "description": "Table header for delete column"
+  },
+  "noHistoryMessage": {
+    "message": "No shortened URLs in history",
+    "description": "Message when history is empty"
+  },
+  "confirmClearHistory": {
+    "message": "Are you sure you want to clear all history?",
+    "description": "Confirmation prompt when clearing history"
+  },
+  "historyClearedMessage": {
+    "message": "History cleared!",
+    "description": "Message shown after clearing history"
+  },
+  "changesSavedMessage": {
+    "message": "Changes saved",
+    "description": "Message shown after saving options"
+  },
+  "themeOptionSystem": {
+    "message": "System",
+    "description": "Option label for system theme mode"
+  },
+  "themeOptionLight": {
+    "message": "Light",
+    "description": "Option label for light theme mode"
+  },
+  "themeOptionDark": {
+    "message": "Dark",
+    "description": "Option label for dark theme mode"
+  },
+  "onboardingThankyouMessage": {
+    "message": "Thank You for Installing <span class=\"app-name-text\">$1</span>",
+    "description": "Onboarding header thanking user for installing, $1 is app name"
+  },
+  "onboardingWelcomeMessage": {
+    "message": "We're excited to have you on board. <span class=\"app-name-text\">$1</span> makes link sharing a breeze",
+    "description": "Welcome message on onboarding page, $1 is app name"
+  },
+  "onboardingQuickGuideMessage": {
+    "message": "Checkout the quick guide below to get started",
+    "description": "Intro to quick guide on onboarding"
+  },
+  "onboardingPinExtensionTitle": {
+    "message": "Pin the extension",
+    "description": "Title for pin extension step"
+  },
+  "onboardingPinExtensionMessage": {
+    "message": "Pin <span class=\"app-name-text\">$1</span> to your toolbar to access it easily",
+    "description": "Instruction to pin the extension, $1 is app name"
+  },
+  "onboardingClickToShortenTitle": {
+    "message": "Click to shorten",
+    "description": "Title for click to shorten step"
+  },
+  "onboardingClickToShortenMessage": {
+    "message": "A single click and your shortened URL is ready!",
+    "description": "Instruction for clicking to shorten"
+  },
+  "onboardingClickToShortenKeyboardMessage": {
+    "message": "For keyboard enthusiasts:",
+    "description": "Label for keyboard shortcut instructions"
+  },
+  "onboardingRightClickShorteningTitle": {
+    "message": "Right-click shortening",
+    "description": "Title for right-click shortening step"
+  },
+  "onboardingRightClickShorteningMessage": {
+    "message": "Right-click any link or text on a page to generate a shortened URL instantly.",
+    "description": "Instruction for right-click shortening"
+  },
+  "onboardingViewHistoryTitle": {
+    "message": "View history",
+    "description": "Title for view history step"
+  },
+  "onboardingViewHistoryMessage": {
+    "message": "Visit all your shortened URLs in one place",
+    "description": "Instruction to view history"
+  },
+  "onboardingAdjustThemeTitle": {
+    "message": "Adjust theme",
+    "description": "Title for theme adjustment step"
+  },
+  "onboardingAdjustThemeMessage": {
+    "message": "Customize the look of <span class=\"app-name-text\">$1</span> by switching between light and dark modes",
+    "description": "Instruction to adjust theme, $1 is app name"
+  },
+  "onboardingAllSetTitle": {
+    "message": "You're all set!",
+    "description": "Title indicating onboarding completion"
+  },
+  "onboardingAllSetMessage": {
+    "message": "Close the tab and start shortening your first URL with <span class=\"app-name-text\">$1</span>",
+    "description": "Final message on onboarding page, $1 is app name"
+  },
+  "contextMenuShortenLinkTitle": {
+    "message": "Shorten the link and copy to clipboard",
+    "description": "Context menu title for link shortening"
+  },
+  "contextMenuShortenSelectedTextTitle": {
+    "message": "Shorten selected text and copy to clipboard",
+    "description": "Context menu title for selected text shortening"
+  },
+  "contextMenuShortenPageLinkTitle": {
+    "message": "Shorten page link and copy to clipboard",
+    "description": "Context menu title for page link shortening"
+  },
+  "invalidUrlError": {
+    "message": "This URL is invalid. Please try another URL",
+    "description": "Error message when user inputs an invalid URL"
+  },
+  "noTextSelected": {
+    "message": "No text selected.",
+    "description": "Error shown when user tries to shorten without selecting text"
   }
 }

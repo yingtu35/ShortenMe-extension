@@ -51,19 +51,19 @@ function setupContextMenus() {
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({
       id: "shortenUrl",
-      title: "Shorten the link and copy to clipboard",
+      title: chrome.i18n.getMessage("contextMenuShortenLinkTitle"),
       contexts: ["link"],
     });
 
     chrome.contextMenus.create({
       id: "shortenSelectedText",
-      title: "Shorten selected text and copy to clipboard",
+      title: chrome.i18n.getMessage("contextMenuShortenSelectedTextTitle"),
       contexts: ["selection"],
     });
 
     chrome.contextMenus.create({
       id: "shortenPageLink",
-      title: "Shorten page link and copy to clipboard",
+      title: chrome.i18n.getMessage("contextMenuShortenPageLinkTitle"),
       contexts: ["all"],
     });
   });
@@ -274,7 +274,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       if (shortenedUrl) {
         sendResponse({ shortenedUrl });
       } else {
-        sendResponse({ error: "This URL is invalid. Please try another URL" });
+        sendResponse({ error: chrome.i18n.getMessage("invalidUrlError") });
       }
     });
   }

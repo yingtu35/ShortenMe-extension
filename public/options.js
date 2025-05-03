@@ -63,12 +63,12 @@ function handleOptionChange(event) {
   saveOptions(options);
   applyTheme(options.themeMode);
 
-  // change save button text to "Saved"
-  saveButton.textContent = 'Changes saved';
+  // change save button text to "Changes saved"
+  saveButton.textContent = chrome.i18n.getMessage('changesSavedMessage');
   saveButton.disabled = true;
 
   setTimeout(() => {
-    saveButton.textContent = 'Save Changes';
+    saveButton.textContent = chrome.i18n.getMessage('saveChangesButton');
     saveButton.disabled = false;
   }, 3000);
 }
@@ -88,4 +88,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 });
 
 // Initialize options on page load
-document.addEventListener('DOMContentLoaded', loadOptions);
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const messageKey = element.getAttribute("data-i18n");
+    const message = chrome.i18n.getMessage(messageKey);
+    if (message) {
+      element.textContent = message;
+    }
+  });
+
+  loadOptions();
+});
