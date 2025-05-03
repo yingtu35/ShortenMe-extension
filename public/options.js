@@ -89,7 +89,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 
 // Initialize options on page load
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
+  const appName = chrome.i18n.getMessage('appName');
+
+  const titleEl = document.querySelector('title[data-i18n="pageTitle"]');
+  if (titleEl) {
+    titleEl.textContent = chrome.i18n.getMessage('pageTitle', [appName]);
+  }
+
+  document.body.querySelectorAll("[data-i18n]").forEach((element) => {
     const messageKey = element.getAttribute("data-i18n");
     const message = chrome.i18n.getMessage(messageKey);
     if (message) {
